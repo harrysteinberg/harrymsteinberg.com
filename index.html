@@ -2,16 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Harry Steinberg | Mechanical Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
       --text-color: #111;
-      --accent: #0077b6;
-      --bg: #f9f9fb;
+      --accent: #005f99;       /* Slightly deeper blue */
+      --accent-hover: #0077b6; /* Hover accent */
+      --bg: #fefefe;
       --card-bg: #fff;
-      --card-border: #e0e0e0;
+      --card-border: #d6d6d6;
+      --nav-bg: #ffffffcc;     /* Transparent white for nav */
+      --nav-shadow: rgba(0, 0, 0, 0.1);
     }
 
     * {
@@ -24,12 +30,65 @@
       background-color: var(--bg);
       color: var(--text-color);
       line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover,
+    a:focus {
+      color: var(--accent-hover);
+      outline: none;
+    }
+
+    /* Navigation bar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--nav-bg);
+      backdrop-filter: saturate(180%) blur(10px);
+      box-shadow: 0 2px 8px var(--nav-shadow);
+      z-index: 1000;
+      padding: 0 30px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav .brand {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      border-bottom-color: var(--accent-hover);
     }
 
     .container {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 80px 30px;
+      padding: 100px 30px 80px; /* top padding to compensate for fixed nav */
     }
 
     header {
@@ -47,6 +106,7 @@
       border-radius: 12px;
       border: 1px solid #ccc;
       flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .intro h1 {
@@ -59,13 +119,14 @@
       margin-top: 10px;
       font-size: 1.5rem;
       font-weight: 500;
-      color: #666;
+      color: #555;
     }
 
     .intro p {
       margin-top: 20px;
       font-size: 1.2rem;
       max-width: 700px;
+      color: #333;
     }
 
     section.projects {
@@ -94,14 +155,17 @@
       padding: 25px;
       transition: all 0.25s ease;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-      text-decoration: none;
+      cursor: pointer;
       color: inherit;
+      text-decoration: none;
     }
 
-    .project-card:hover {
+    .project-card:hover,
+    .project-card:focus {
       transform: translateY(-6px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      border-color: var(--accent);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent-hover);
+      outline: none;
     }
 
     .project-card h4 {
@@ -122,9 +186,15 @@
       font-size: 0.95rem;
       color: #aaa;
       text-align: center;
+      padding-bottom: 40px;
     }
 
+    /* Responsive adjustments */
     @media (max-width: 600px) {
+      nav ul {
+        gap: 15px;
+      }
+
       header {
         flex-direction: column;
         align-items: flex-start;
@@ -145,6 +215,29 @@
   </style>
 </head>
 <body>
+  <nav>
+    <div class="brand">Harry Steinberg</div>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/your-linkedin-profile"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+      </li>
+      <li>
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Resume</a
+        >
+      </li>
+    </ul>
+  </nav>
+
   <div class="container">
     <header>
       <img src="pf_headshot.jpg" alt="Harry Steinberg headshot" />
@@ -152,33 +245,42 @@
         <h1>Harry Steinberg</h1>
         <h2>Mechanical Engineer</h2>
         <p>
-          I design and engineer mechanical systems that balance precision, manufacturability, and performance. 
-          My work is rooted in prototyping, iteration, and rigorous technical development — from napkin sketch to shop floor.
+          I design and engineer mechanical systems that balance precision,
+          manufacturability, and performance. My work is rooted in prototyping,
+          iteration, and rigorous technical development — from napkin sketch to
+          shop floor.
         </p>
       </div>
     </header>
 
-    <section class="projects">
+    <section id="projects" class="projects">
       <h3>Selected Projects</h3>
       <div class="project-grid">
         <a class="project-card" href="#">
           <h4>Precision CNC Assembly Tool</h4>
-          <p>Custom-designed fixturing system for a high-precision automated production line. [Coming Soon]</p>
+          <p>
+            Custom-designed fixturing system for a high-precision automated
+            production line. [Coming Soon]
+          </p>
         </a>
         <a class="project-card" href="#">
           <h4>3D-Printed Gearbox Prototype</h4>
-          <p>Ultra-light gearbox using modular printed components to reduce backlash and weight. [Coming Soon]</p>
+          <p>
+            Ultra-light gearbox using modular printed components to reduce
+            backlash and weight. [Coming Soon]
+          </p>
         </a>
         <a class="project-card" href="#">
           <h4>Bike Suspension Analyzer</h4>
-          <p>Field tool to visualize shock curves and optimize ride dynamics. [Coming Soon]</p>
+          <p>
+            Field tool to visualize shock curves and optimize ride dynamics.
+            [Coming Soon]
+          </p>
         </a>
       </div>
     </section>
 
-    <footer>
-      © Harry Steinberg — 2025
-    </footer>
+    <footer>© Harry Steinberg — 2025</footer>
   </div>
 </body>
 </html>
