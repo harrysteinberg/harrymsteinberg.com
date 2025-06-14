@@ -5,55 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Harry Steinberg | Mechanical Engineer</title>
   <style>
+    :root {
+      --text-color: #222;
+      --accent: #0077b6;
+      --card-bg: #f9f9f9;
+      --card-border: #ddd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #ffffff;
-      color: #333;
-      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #fff;
     }
 
     .container {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 0 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
     }
 
     header {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 20px;
+      gap: 30px;
+      margin-bottom: 60px;
     }
 
-    img {
-      width: 120px;
-      height: 120px;
+    header img {
+      width: 130px;
+      height: 130px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
       border: 1px solid #ccc;
     }
 
-    h1 {
-      font-size: 2em;
-      margin: 0 0 5px;
-    }
-
-    h2 {
-      font-size: 1.2em;
-      color: #666;
+    .intro h1 {
       margin: 0;
+      font-size: 2.5em;
     }
 
-    .bio {
-      margin-top: 40px;
-      font-size: 1.05em;
+    .intro h2 {
+      margin-top: 5px;
+      color: #666;
+      font-weight: 400;
+    }
+
+    .intro p {
+      margin-top: 15px;
+      font-size: 1.1em;
+      max-width: 600px;
+    }
+
+    section.projects {
+      margin-top: 60px;
+    }
+
+    .projects h3 {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .project-card h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .project-card p {
+      margin: 0;
+      font-size: 0.95em;
+      color: #444;
     }
 
     footer {
-      margin-top: 60px;
+      margin-top: 80px;
       font-size: 0.9em;
       color: #aaa;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header img {
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
@@ -61,16 +129,32 @@
   <div class="container">
     <header>
       <img src="pf_headshot.jpg" alt="Harry Steinberg headshot" />
-      <div>
+      <div class="intro">
         <h1>Harry Steinberg</h1>
         <h2>Mechanical Engineer</h2>
+        <p>
+          I design and engineer mechanical systems that balance precision, manufacturability, and performance. 
+          With a background rooted in both hands-on prototyping and deep technical analysis, I bring rigor and creativity to every project.
+        </p>
       </div>
     </header>
 
-    <section class="bio">
-      <p>
-       Mechanical engineer with a passion for thoughtful design, collaborative problem solving, and real-world impact. 
-    I specialize in turning rough ideas into manufacturable, high-performing products.
+    <section class="projects">
+      <h3>Selected Projects</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>Precision CNC Assembly Tool</h4>
+          <p>A custom fixturing system for high-volume precision assembly. [Coming Soon]</p>
+        </div>
+        <div class="project-card">
+          <h4>3D-Printed Gearbox Prototype</h4>
+          <p>Designed and tested an ultra-light, low-backlash gear reducer for robotics. [Coming Soon]</p>
+        </div>
+        <div class="project-card">
+          <h4>Bike Suspension Analyzer</h4>
+          <p>A field-deployable system to measure shock curves and tune damping rates. [Coming Soon]</p>
+        </div>
+      </div>
     </section>
 
     <footer>
