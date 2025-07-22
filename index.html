@@ -1,71 +1,151 @@
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Harry Steinberg | Mechanical Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --text-color: #111;
-        --accent: #005f99;
-        --accent-hover: #0077b6;
-        --bg: #f9f9f9;
-        --card-bg: #fff;
-        --card-border: #d0d0d0;
-        --nav-bg: #ffffffcc;
-        --nav-shadow: rgba(0, 0, 0, 0.07);
-      }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harry Steinberg | Mechanical Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --text-color: #111;
+      --accent: #005f99;
+      --accent-hover: #0077b6;
+      --bg: #f9f9f9;
+      --card-bg: #fff;
+      --card-border: #d0d0d0;
+      --nav-bg: #ffffffcc;
+      --nav-shadow: rgba(0, 0, 0, 0.07);
+    }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      body {
-        font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-        background-color: var(--bg);
-        color: var(--text-color);
-        line-height: 1.6;
-        scroll-behavior: smooth;
-      }
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-      a {
-        color: var(--accent);
-        text-decoration: none;
-        transition: color 0.2s ease;
-      }
-      a:hover,
-      a:focus {
-        color: var(--accent-hover);
-        outline: none;
-      }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
 
-      nav {
-        position: sticky;
-        top: 0;
-        background: var(--nav-bg);
-        backdrop-filter: saturate(180%) blur(10px);
-        box-shadow: 0 2px 8px var(--nav-shadow);
-        z-index: 1000;
-        padding: 0 30px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
+    a:hover,
+    a:focus {
+      color: var(--accent-hover);
+      outline: none;
+    }
 
-      nav .brand {
-        font-weight: 700;
-        font-size: 1.4rem;
-        color: var(--accent);
-        letter-spacing: 0.05em;
-      }
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--nav-bg);
+      backdrop-filter: saturate(180%) blur(10px);
+      box-shadow: 0 2px 8px var(--nav-shadow);
+      z-index: 1000;
+      padding: 0 30px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 25px;
-      }
+    nav .brand {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
 
-      nav ul li a {
-        font-weight: 600;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      border-bottom-color: var(--accent-hover);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 100px 30px 80px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    header img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid #ccc;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .intro h1 {
+      margin: 0;
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .intro h2 {
+      margin-top: 10px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #444;
+    }
+
+    .intro p {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #333;
+      max-width: 700px;
+    }
+
+    section.projects {
+      margin-top: 80px;
+    }
+
+    .projects h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12p
