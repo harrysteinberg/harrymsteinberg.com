@@ -79,13 +79,17 @@
     }
 
     section {
-      padding: 120px 20px 60px;
+      padding: 80px 20px 60px;
       max-width: 800px;
       margin: 0 auto;
       text-align: left;
     }
 
-    #about p, #projects p, #contact p {
+    #about {
+      padding-top: 60px;
+    }
+
+    #about p, #contact p {
       font-size: 1.1rem;
       line-height: 1.6;
       color: #333;
@@ -108,15 +112,62 @@
     #about a:hover {
       text-decoration: underline;
     }
+
+    /* Engineering Portfolio project block */
+    .project-subsection {
+      border: none;
+      border-radius: 10px;
+      padding: 25px 30px;
+      margin-bottom: 30px;
+      background-color: transparent;
+      box-shadow: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-subsection:hover,
+    .project-subsection:focus {
+      border: 2px solid var(--burnt-orange);
+      background-color: #fff7ee;
+      box-shadow: 0 4px 10px rgba(204, 85, 0, 0.1);
+      outline: none;
+    }
+
+    .project-subsection h3 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      color: var(--burnt-orange);
+      font-weight: 700;
+    }
+
+    .project-subsection p {
+      font-size: 1.1rem;
+      color: #333;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    .see-all-projects {
+      display: inline-block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: var(--burnt-orange);
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .see-all-projects:hover,
+    .see-all-projects:focus {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-links">
       <a href="#home">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact Me</a>
+      <a href="#engineering-portfolio">Engineering Portfolio</a>
+      <a href="#contact">Contact</a>
     </div>
     <div class="nav-buttons">
       <a href="https://www.linkedin.com/in/harrysteinberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -129,7 +180,7 @@
   </div>
 
   <section id="about">
-    <h2>About Me</h2>
+    <h2>About</h2>
     <p>
       I design and engineer mechanical systems that balance performance and 
       manufacturability. My work is rooted in using mechanical principles and experimentation to 
@@ -137,17 +188,28 @@
     </p>
     <p>
       I currently work at <a href="https://www.parallelfluidics.com/">Parallel Fluidics</a> helping design the next generation of microfluidic manufacturing equipment.
-      I previously worked at <a href="https://www.visioncycle.com/">Vision Cycle</a> and <a href="https://nolop.org/">NOLOP Makerspace</a>.
+      I previously worked at <a href="https://www.visioncycle.com/">Vision Cycle</a>, <a href="https://nolop.org/">NOLOP Makerspace</a>, and 
+      <a href="https://www.ccscambridge.org/">Community Charter School of Cambridge</a> as a 7th Grade Math Teacher.
     </p>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>More info coming soon...</p>
+  <section id="engineering-portfolio">
+    <h2>Engineering Portfolio</h2>
+
+    <div class="project-subsection" tabindex="0">
+      <h3>Fuel Cell Prototype</h3>
+      <p>
+        Description about the Fuel Cell Prototype project goes here. This is a placeholder paragraph to introduce the project’s goals, approach, and outcomes.
+      </p>
+    </div>
+
+    <!-- Add more projects by duplicating the above block -->
+
+    <a href="/projects.html" class="see-all-projects">See all projects</a>
   </section>
 
   <section id="contact">
-    <h2>Contact Me</h2>
+    <h2>Contact</h2>
     <p>Contact details and form coming soon.</p>
   </section>
 </body>
