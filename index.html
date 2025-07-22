@@ -148,4 +148,107 @@
     .project-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 12p
+      border-radius: 12px;
+      padding: 25px;
+      transition: all 0.25s ease;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+      color: inherit;
+    }
+
+    .project-card:hover,
+    .project-card:focus {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent-hover);
+      outline: none;
+    }
+
+    .project-card h4 {
+      margin: 0 0 12px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .project-card p {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #444;
+    }
+
+    footer {
+      margin-top: 100px;
+      font-size: 0.95rem;
+      color: #999;
+      text-align: center;
+      padding-bottom: 40px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .intro h1 {
+        font-size: 2.2rem;
+      }
+
+      .intro h2 {
+        font-size: 1.3rem;
+      }
+
+      .intro p {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand">Harry Steinberg</div>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="https://www.linkedin.com/in/harrysteinberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header>
+      <img src="pf_headshot.jpg" alt="Harry Steinberg headshot" />
+      <div class="intro">
+        <h1>Harry Steinberg</h1>
+        <h2>Mechanical Engineer</h2>
+        <p>
+          I design and engineer mechanical systems that balance performance and 
+          manufacturability. My work is rooted in using mechanical principles and experimentation to 
+          arrive at elegant solutions to complex problems.
+        </p>
+      </div>
+    </header>
+
+    <section id="projects" class="projects">
+      <h3>Selected Projects</h3>
+      <div class="project-grid">
+        <a class="project-card" href="#">
+          <h4>[Coming Soon]</h4>
+          <p>.</p>
+        </a>
+        <a class="project-card" href="#">
+          <h4>[Coming Soon]</h4>
+          <p>.</p>
+        </a>
+        <a class="project-card" href="#">
+          <h4>[Coming Soon]</h4>
+          <p>.</p>
+        </a>
+      </div>
+    </section>
+
+    <footer>© Harry Steinberg — 2025</footer>
+  </div>
+</body>
+</html>
