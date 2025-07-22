@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harry Steinberg</title>
+  <title>Home | Harry Steinberg</title>
   <link rel="icon" href="harrymsteinberg.com-favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="harrymsteinberg.com-favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -19,9 +20,55 @@
       color: #111;
     }
 
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: #000;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 8px 12px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--burnt-orange);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-buttons a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--burnt-orange);
+      border: 2px solid var(--burnt-orange);
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      background-color: var(--burnt-orange);
+      color: white;
+    }
+
     .header {
       text-align: center;
-      padding: 100px 20px 40px;
+      padding: 0 20px 20px;
     }
 
     .header h1 {
@@ -31,82 +78,77 @@
       color: var(--burnt-orange);
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 20px 0;
-      background-color: transparent;
-    }
-
-    nav a {
-      font-weight: 600;
-      color: #000;
-      text-decoration: none;
-      font-size: 1rem;
-      padding: 8px 16px;
-      transition: all 0.2s ease;
-      border-radius: 6px;
-    }
-
-    nav a:hover {
-      background-color: var(--burnt-orange);
-      color: #fff;
-    }
-
-    .bio-section {
+    section {
+      padding: 120px 20px 60px;
       max-width: 800px;
-      margin: 60px auto;
-      padding: 60px 20px;
-      text-align: center;
+      margin: 0 auto;
+      text-align: left;
     }
 
-    .bio-section p {
+    #about p, #projects p, #contact p {
       font-size: 1.1rem;
       line-height: 1.6;
       color: #333;
+      text-align: left;
     }
 
-    .image-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
+    section h2 {
+      text-align: left;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #111;
     }
 
-    .image-gallery img {
-      width: 250px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    #about a {
+      color: var(--burnt-orange);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    #about a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="header">
+  <nav>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact Me</a>
+    </div>
+    <div class="nav-buttons">
+      <a href="https://www.linkedin.com/in/harrysteinberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="#">Resume</a>
+    </div>
+  </nav>
+
+  <div class="header" id="home">
     <h1>Harry Steinberg</h1>
   </div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#portfolio">Engineering Portfolio</a>
-    <a href="#resume">Resume</a>
-    <a href="#certifications">Certifications</a>
-  </nav>
-
-  <section class="bio-section">
+  <section id="about">
+    <h2>About Me</h2>
     <p>
       I design and engineer mechanical systems that balance performance and 
       manufacturability. My work is rooted in using mechanical principles and experimentation to 
       arrive at elegant solutions to complex problems.
     </p>
+    <p>
+      I currently work at <a href="https://www.parallelfluidics.com/">Parallel Fluidics</a> helping design the next generation of microfluidic manufacturing equipment.
+      I previously worked at <a href="https://www.visioncycle.com/">Vision Cycle</a> and <a href="https://nolop.org/">NOLOP Makerspace</a>.
+    </p>
   </section>
 
-  <div class="image-gallery">
-    <img src="project1.jpg" alt="Project 1">
-    <img src="project2.jpg" alt="Project 2">
-    <img src="project3.jpg" alt="Project 3">
-  </div>
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>More info coming soon...</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Contact details and form coming soon.</p>
+  </section>
 </body>
 </html>
