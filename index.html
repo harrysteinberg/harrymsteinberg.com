@@ -62,7 +62,35 @@
     .wireframe-container img {
       max-width: 100%;
       height: auto;
-      opacity: 0.1;
+      opacity: 0.2;
+    }
+
+    .bio-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .bio-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .image-gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
@@ -80,6 +108,18 @@
 
   <div class="wireframe-container">
     <img src="wireframe-background.png" alt="Wireframe Background" />
+  </div>
+
+  <section class="bio-section">
+    <p>
+      I'm a mechanical engineer with a passion for solving complex problems and building innovative, practical solutions. My work spans CAD modeling, prototyping, and systems integration — all rooted in real-world performance and usability. I'm always exploring how thoughtful design and engineering can improve the way we live, move, and interact with our environment.
+    </p>
+  </section>
+
+  <div class="image-gallery">
+    <img src="project1.jpg" alt="Project 1">
+    <img src="project2.jpg" alt="Project 2">
+    <img src="project3.jpg" alt="Project 3">
   </div>
 </body>
 </html>
