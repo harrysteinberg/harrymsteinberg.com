@@ -68,7 +68,7 @@
 
     .header {
       text-align: center;
-      padding: 0 20px 20px;
+      padding: 120px 20px 20px;
     }
 
     .header h1 {
@@ -86,7 +86,7 @@
     }
 
     #about {
-      padding-top: 60px;
+      padding-top: 140px;
     }
 
     #about p, #contact p {
@@ -114,6 +114,10 @@
     }
 
     /* Engineering Portfolio project block */
+    #engineering-portfolio {
+      padding-top: 380px;
+    }
+
     .project-subsection {
       border: none;
       border-radius: 10px;
@@ -121,16 +125,6 @@
       margin-bottom: 30px;
       background-color: transparent;
       box-shadow: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .project-subsection:hover,
-    .project-subsection:focus {
-      border: 2px solid var(--burnt-orange);
-      background-color: #fff7ee;
-      box-shadow: 0 4px 10px rgba(204, 85, 0, 0.1);
-      outline: none;
     }
 
     .project-subsection h3 {
@@ -154,11 +148,16 @@
       color: var(--burnt-orange);
       text-decoration: none;
       font-size: 1.1rem;
+      transition: all 0.3s ease;
+      padding: 4px 8px;
+      border-radius: 4px;
     }
 
     .see-all-projects:hover,
     .see-all-projects:focus {
       text-decoration: underline;
+      background-color: #fff7ee;
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -196,14 +195,12 @@
   <section id="engineering-portfolio">
     <h2>Engineering Portfolio</h2>
 
-    <div class="project-subsection" tabindex="0">
+    <div class="project-subsection">
       <h3>Fuel Cell Prototype</h3>
       <p>
         Description about the Fuel Cell Prototype project goes here. This is a placeholder paragraph to introduce the project’s goals, approach, and outcomes.
       </p>
     </div>
-
-    <!-- Add more projects by duplicating the above block -->
 
     <a href="/projects.html" class="see-all-projects">See all projects</a>
   </section>
