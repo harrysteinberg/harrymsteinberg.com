@@ -2,253 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Harry Steinberg | Mechanical Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harry Steinberg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --text-color: #111;
-      --accent: #005f99;
-      --accent-hover: #0077b6;
-      --bg: #f9f9f9;
-      --card-bg: #fff;
-      --card-border: #d0d0d0;
-      --nav-bg: #ffffffcc;
-      --nav-shadow: rgba(0, 0, 0, 0.07);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      --burnt-orange: #cc5500;
     }
 
     body {
-      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg);
-      color: var(--text-color);
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #111;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s ease;
+    .header {
+      text-align: center;
+      padding: 100px 20px 40px;
     }
 
-    a:hover,
-    a:focus {
-      color: var(--accent-hover);
-      outline: none;
+    .header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--burnt-orange);
     }
 
     nav {
-      position: sticky;
-      top: 0;
-      background: var(--nav-bg);
-      backdrop-filter: saturate(180%) blur(10px);
-      box-shadow: 0 2px 8px var(--nav-shadow);
-      z-index: 1000;
-      padding: 0 30px;
-      height: 60px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    nav .brand {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav ul li a {
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 8px 0;
-      border-bottom: 2px solid transparent;
-    }
-
-    nav ul li a:hover,
-    nav ul li a:focus {
-      border-bottom-color: var(--accent-hover);
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 100px 30px 80px;
-    }
-
-    header {
-      display: grid;
-      grid-template-columns: 160px 1fr;
+      justify-content: center;
       gap: 40px;
-      align-items: center;
-      margin-bottom: 80px;
+      padding: 20px 0;
+      background-color: transparent;
     }
 
-    header img {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 1px solid #ccc;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .intro h1 {
-      margin: 0;
-      font-size: 3.2rem;
-      font-weight: 700;
-      line-height: 1.1;
-    }
-
-    .intro h2 {
-      margin-top: 10px;
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: #444;
-    }
-
-    .intro p {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: #333;
-      max-width: 700px;
-    }
-
-    section.projects {
-      margin-top: 80px;
-    }
-
-    .projects h3 {
-      font-size: 2rem;
+    nav a {
       font-weight: 600;
-      margin-bottom: 30px;
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-      padding-bottom: 8px;
+      color: #000;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 8px 16px;
+      transition: all 0.2s ease;
+      border-radius: 6px;
     }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+    nav a:hover {
+      background-color: var(--burnt-orange);
+      color: #fff;
     }
 
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 25px;
-      transition: all 0.25s ease;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
-      color: inherit;
+    .wireframe-container {
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
     }
 
-    .project-card:hover,
-    .project-card:focus {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      border-color: var(--accent-hover);
-      outline: none;
-    }
-
-    .project-card h4 {
-      margin: 0 0 12px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .project-card p {
-      margin: 0;
-      font-size: 1.05rem;
-      color: #444;
-    }
-
-    footer {
-      margin-top: 100px;
-      font-size: 0.95rem;
-      color: #999;
-      text-align: center;
-      padding-bottom: 40px;
-    }
-
-    @media (max-width: 700px) {
-      header {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-        justify-items: center;
-        text-align: center;
-      }
-
-      .intro h1 {
-        font-size: 2.2rem;
-      }
-
-      .intro h2 {
-        font-size: 1.3rem;
-      }
-
-      .intro p {
-        font-size: 1.05rem;
-      }
+    .wireframe-container img {
+      max-width: 100%;
+      height: auto;
+      opacity: 0.1;
     }
   </style>
 </head>
 <body>
+  <div class="header">
+    <h1>Harry Steinberg</h1>
+  </div>
+
   <nav>
-    <div class="brand">Harry Steinberg</div>
-    <ul>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="https://www.linkedin.com/in/harrysteinberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      <li><a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
-    </ul>
+    <a href="#home">Home</a>
+    <a href="#portfolio">Engineering Portfolio</a>
+    <a href="#resume">Resume</a>
+    <a href="#certifications">Certifications</a>
   </nav>
 
-  <div class="container">
-    <header>
-      <img src="pf_headshot.jpg" alt="Harry Steinberg headshot" />
-      <div class="intro">
-        <h1>Harry Steinberg</h1>
-        <h2>Mechanical Engineer</h2>
-        <p>
-          I design and engineer mechanical systems that balance performance and 
-          manufacturability. My work is rooted in using mechanical principles and experimentation to 
-          arrive at elegant solutions to complex problems.
-        </p>
-      </div>
-    </header>
-
-    <section id="projects" class="projects">
-      <h3>Selected Projects</h3>
-      <div class="project-grid">
-        <a class="project-card" href="#">
-          <h4>[Coming Soon]</h4>
-          <p>.</p>
-        </a>
-        <a class="project-card" href="#">
-          <h4>[Coming Soon]</h4>
-          <p>.</p>
-        </a>
-        <a class="project-card" href="#">
-          <h4>[Coming Soon]</h4>
-          <p>.</p>
-        </a>
-      </div>
-    </section>
-
-    <footer>© Harry Steinberg — 2025</footer>
+  <div class="wireframe-container">
+    <img src="wireframe-background.png" alt="Wireframe Background" />
   </div>
 </body>
 </html>
