@@ -53,23 +53,26 @@
       color: #fff;
     }
 
-    .wireframe-container {
-      display: flex;
-      justify-content: center;
-      padding: 60px 20px;
-    }
-
-    .wireframe-container img {
-      max-width: 100%;
-      height: auto;
-      opacity: 0.2;
-    }
-
     .bio-section {
+      position: relative;
       max-width: 800px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
+      z-index: 1;
+    }
+
+    .bio-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: url('wireframe-background.png') center/contain no-repeat;
+      opacity: 0.2;
+      z-index: -1;
     }
 
     .bio-section p {
@@ -106,13 +109,11 @@
     <a href="#certifications">Certifications</a>
   </nav>
 
-  <div class="wireframe-container">
-    <img src="wireframe-background.png" alt="Wireframe Background" />
-  </div>
-
   <section class="bio-section">
     <p>
-      I'm a mechanical engineer with a passion for solving complex problems and building innovative, practical solutions. My work spans CAD modeling, prototyping, and systems integration — all rooted in real-world performance and usability. I'm always exploring how thoughtful design and engineering can improve the way we live, move, and interact with our environment.
+      I design and engineer mechanical systems that balance performance and 
+      manufacturability. My work is rooted in using mechanical principles and experimentation to 
+      arrive at elegant solutions to complex problems.
     </p>
   </section>
 
