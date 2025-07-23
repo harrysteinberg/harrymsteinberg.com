@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | Harry Steinberg</title>
+  <title>Projects | Harry Steinberg</title>
   <link rel="icon" href="harrymsteinberg.com-favicon.png" type="image/png" />
-  <link rel="shortcut icon" href="harrymsteinberg.com-favicon.png" type="image/png" />
+  <link rel="shortcut icon="harrymsteinberg.com-favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -68,7 +68,7 @@
 
     .header {
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
     }
 
     .header h1 {
@@ -78,104 +78,50 @@
       color: var(--burnt-orange);
     }
 
-    section {
-      padding: 80px 20px 60px;
-      max-width: 800px;
+    .project-section {
+      max-width: 900px;
       margin: 0 auto;
-      text-align: left;
-    }
-
-    #about {
-      padding-top: 60px;
-      padding-bottom: 140px; /* Spacing moved here */
-    }
-
-    #about p, #contact p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #333;
-      text-align: left;
-    }
-
-    section h2 {
-      text-align: left;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #111;
-    }
-
-    #about a {
-      color: var(--burnt-orange);
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    #about a:hover {
-      text-decoration: underline;
-    }
-
-    /* Engineering Portfolio project block */
-    #engineering-portfolio {
-      padding-top: 0; /* Removed top spacing */
+      padding: 40px 20px;
     }
 
     .project-subsection {
-      border: none;
-      border-radius: 10px;
-      padding: 25px 30px;
-      margin-bottom: 30px;
-      background-color: transparent;
-      box-shadow: none;
+      margin-bottom: 60px;
     }
 
-    .project-subsection h3 {
-      margin-top: 0;
-      font-size: 1.8rem;
+    .project-subsection h2 {
       color: var(--burnt-orange);
-      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
 
     .project-subsection p {
       font-size: 1.1rem;
       color: #333;
-      margin-top: 12px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    .project-subsection img {
-      margin-top: 12px;
-      width: 100%;
-      max-height: 450px;
-      object-fit: cover;
-      border-radius: 8px;
-      background-color: #ddd; /* placeholder bg if no image */
+    #contact {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px 60px;
     }
 
-    .see-all-projects {
-      display: inline-block;
-      margin-top: 15px;
-      font-weight: 600;
-      color: var(--burnt-orange);
-      text-decoration: none;
+    #contact h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    #contact p {
       font-size: 1.1rem;
-      transition: all 0.3s ease;
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
-
-    .see-all-projects:hover,
-    .see-all-projects:focus {
-      text-decoration: underline;
-      background-color: #fff7ee;
-      transform: translateY(-2px);
+      color: #333;
     }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#engineering-portfolio">Engineering Portfolio</a>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#engineering-portfolio">Engineering Portfolio</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-buttons">
@@ -184,52 +130,45 @@
     </div>
   </nav>
 
-  <div class="header" id="home">
-    <h1>Harry Steinberg</h1>
+  <div class="header">
+    <h1>Projects</h1>
   </div>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I design and engineer mechanical systems that balance performance and 
-      manufacturability. My work is rooted in using mechanical principles and hands-on fabrication to 
-      arrive at elegant solutions to complex problems.
-    </p>
-    <p>
-      I currently work at <a href="https://www.parallelfluidics.com/">Parallel Fluidics</a> helping design the next generation of microfluidic device manufacturing equipment.
-      I previously worked at <a href="https://www.visioncycle.com/">Vision Cycle</a>, <a href="https://www.ccscambridge.org/">Community Charter School of Cambridge</a>, and
-      <a href="https://nolop.org/">NOLOP Makerspace</a>.
-    </p>
-  </section>
-
-  <section id="engineering-portfolio">
-    <h2>Engineering Portfolio</h2>
-
+  <section class="project-section">
     <div class="project-subsection">
-      <h3>Microfluidic Device Manufacturing Equipment</h3>
+      <h2>Microfluidic Device Manufacturing Equipment</h2>
       <p>
-        I currently work on designing, testing, and optimizing the next generation of high-precision microfluidic device manufacturing equipment.
+        At Parallel Fluidics, I design, prototype, and validate mechanical systems used to manufacture microfluidic devices at scale. This includes precision mechanisms for lamination, alignment, and inspection, with a focus on modularity and manufacturability.
       </p>
-      <img src="microfluidic-device-homepage.jpg" alt="Microfluidic Device Manufacturing Equipment" />
     </div>
 
     <div class="project-subsection">
-      <h3>Vision Valve</h3>
+      <h2>Vision Valve</h2>
       <p>
-        I developed test methods to successfully validate vision sorting equipment, increasing our yield from 50% to &gt;90% and more than doubling our throughput.
+        I developed and implemented validation tests for automated vision sorting valves, improving pass rates from 50% to over 90%. This involved both mechanical tuning and developing test setups to isolate sources of error.
       </p>
-      <img src="vision-valve-homeapge.png" alt="Vision Valve" />
-    </div>
-    
-    <div class="project-subsection">
-      <h3>Bioelectrochemical Reactor</h3>
-      <p>
-        I designed a prototype bioelectrochemical reactor to convert concentrated wastewater and air into electricity.
-      </p>
-      <img src="bioelectrochemical-reactor-homeapge.jpg" alt="Bioelectrochemical Reactor" />
     </div>
 
-    <a href="/projects.html" class="see-all-projects">See all projects</a>
+    <div class="project-subsection">
+      <h2>Bioelectrochemical Reactor</h2>
+      <p>
+        I designed and built a small-scale bioelectrochemical reactor that converts concentrated wastewater and air into electricity. This involved iterative prototyping, fluid sealing strategies, and performance testing.
+      </p>
+    </div>
+
+    <div class="project-subsection">
+      <h2>FlowShow Wind Tunnel</h2>
+      <p>
+        Designed, fabricated, and tested small-scale wind tunnel with streamline visualization and real-time velocity display capable of reaching 20 m/s.
+      </p>
+    </div>
+
+    <div class="project-subsection">
+      <h2>Long Shot </h2>
+      <p>
+        Designed and fabricated intuitive ball-toss game using infrared sensors.
+      </p>
+    </div>
   </section>
 
   <section id="contact">
