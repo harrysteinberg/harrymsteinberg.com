@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Harry Steinberg</title>
   <link rel="icon" href="harrymsteinberg.com-favicon.png" type="image/png" />
-  <link rel="shortcut icon="harrymsteinberg.com-favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="harrymsteinberg.com-favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -18,19 +18,36 @@
       font-family: 'Inter', sans-serif;
       background-color: #ffffff;
       color: #111;
+      scroll-behavior: smooth;
     }
 
     nav {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
-      gap: 20px;
       padding: 20px;
+      gap: 20px;
+      position: relative;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--burnt-orange);
+      transition: all 0.3s ease;
     }
 
     .nav-links {
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
@@ -39,16 +56,18 @@
       text-decoration: none;
       font-size: 1rem;
       padding: 8px 12px;
-      transition: color 0.2s ease;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     .nav-links a:hover {
       color: var(--burnt-orange);
+      transform: translateY(-2px);
     }
 
     .nav-buttons {
       display: flex;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .nav-buttons a {
@@ -64,11 +83,20 @@
     .nav-buttons a:hover {
       background-color: var(--burnt-orange);
       color: white;
+      transform: translateY(-2px);
     }
 
     .header {
       text-align: center;
       padding: 40px 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .header.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .header h1 {
@@ -76,6 +104,7 @@
       font-size: 3rem;
       font-weight: 700;
       color: var(--burnt-orange);
+      line-height: 1.2;
     }
 
     .project-section {
@@ -86,24 +115,51 @@
 
     .project-subsection {
       margin-bottom: 60px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-subsection:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
     }
 
     .project-subsection h2 {
       color: var(--burnt-orange);
       font-size: 2rem;
       margin-bottom: 10px;
+      line-height: 1.3;
     }
 
     .project-subsection p {
       font-size: 1.1rem;
       color: #333;
-      line-height: 1.6;
+      line-height: 1.7;
+    }
+
+    .project-subsection img {
+      margin-top: 12px;
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 8px;
+      background-color: #ddd; /* placeholder background */
     }
 
     #contact {
       max-width: 900px;
       margin: 60px auto;
       padding: 0 20px 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    #contact.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     #contact h2 {
@@ -114,6 +170,57 @@
     #contact p {
       font-size: 1.1rem;
       color: #333;
+    }
+
+    /* Mobile-Friendly Adjustments */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links,
+      .nav-buttons {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .nav-links.active,
+      .nav-buttons.active {
+        display: flex;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+      }
+
+      .project-section {
+        padding: 30px 16px;
+      }
+
+      .project-subsection h2 {
+        font-size: 1.7rem;
+      }
+
+      .project-subsection p {
+        font-size: 1.05rem;
+      }
+
+      #contact h2 {
+        font-size: 1.8rem;
+      }
+
+      #contact p {
+        font-size: 1.05rem;
+      }
     }
   </style>
 </head>
@@ -127,11 +234,16 @@
 
   gtag('config', 'G-Q3E03BCVXF');
 </script>
-  
+
 <body>
   <nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <div class="nav-links">
-      <a href="index.html#home">Home</a>
+      <a href="index.html#home" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Home</a>
       <a href="index.html#engineering-portfolio">Engineering Portfolio</a>
       <a href="#contact">Contact</a>
     </div>
@@ -151,6 +263,7 @@
       <p>
         At Parallel Fluidics, I design, prototype, and validate mechanical systems used to manufacture microfluidic devices at scale. This includes precision mechanisms for lamination, alignment, and inspection, with a focus on modularity and manufacturability.
       </p>
+      <img src="microfluidic-device-placeholder.jpg" alt="Microfluidic Device" />
     </div>
 
     <div class="project-subsection">
@@ -158,6 +271,7 @@
       <p>
         I developed and implemented validation tests for automated vision sorting valves, improving pass rates from 50% to over 90%. This involved both mechanical tuning and developing test setups to isolate sources of error.
       </p>
+      <img src="vision-valve-placeholder.jpg" alt="Vision Valve" />
     </div>
 
     <div class="project-subsection">
@@ -165,6 +279,7 @@
       <p>
         I designed and built a small-scale bioelectrochemical reactor that converts concentrated wastewater and air into electricity. This involved iterative prototyping, fluid sealing strategies, and performance testing.
       </p>
+      <img src="bioelectrochemical-reactor-placeholder.jpg" alt="Bioelectrochemical Reactor" />
     </div>
 
     <div class="project-subsection">
@@ -172,13 +287,15 @@
       <p>
         Designed, fabricated, and tested small-scale wind tunnel with streamline visualization and real-time velocity display capable of reaching 20 m/s.
       </p>
+      <img src="flowshow-wind-tunnel-placeholder.jpg" alt="FlowShow Wind Tunnel" />
     </div>
 
     <div class="project-subsection">
-      <h2>Long Shot </h2>
+      <h2>Long Shot</h2>
       <p>
         Designed and fabricated intuitive ball-toss game using infrared sensors.
       </p>
+      <img src="long-shot-placeholder.jpg" alt="Long Shot Game" />
     </div>
   </section>
 
@@ -186,5 +303,26 @@
     <h2>Contact</h2>
     <p>Email me at harrymsteinberg@gmail.com.</p>
   </section>
+
+  <script>
+    // Fade-in on scroll
+    const sections = document.querySelectorAll('.header, .project-subsection, #contact');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Hamburger toggle
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+      document.querySelector('.nav-buttons').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
