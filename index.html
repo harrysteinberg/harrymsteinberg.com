@@ -18,19 +18,37 @@
       font-family: 'Inter', sans-serif;
       background-color: #ffffff;
       color: #111;
+      scroll-behavior: smooth;
     }
 
     nav {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       gap: 20px;
       padding: 20px;
+      position: relative;
+    }
+
+    /* Hamburger icon */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--burnt-orange);
+      transition: all 0.3s ease;
     }
 
     .nav-links {
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
@@ -39,16 +57,18 @@
       text-decoration: none;
       font-size: 1rem;
       padding: 8px 12px;
-      transition: color 0.2s ease;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     .nav-links a:hover {
       color: var(--burnt-orange);
+      transform: translateY(-2px);
     }
 
     .nav-buttons {
       display: flex;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .nav-buttons a {
@@ -64,54 +84,83 @@
     .nav-buttons a:hover {
       background-color: var(--burnt-orange);
       color: white;
+      transform: translateY(-2px);
     }
 
     .header {
       text-align: center;
-      : 20px;
+      padding: 20px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .header.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .header h1 {
       margin: 0;
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 700;
       color: var(--burnt-orange);
+      line-height: 1.2;
     }
 
     section {
-      : 80px 20px 60px;
-      max-width: 800px;
+      padding: 80px 20px 60px;
+      max-width: 750px;
       margin: 0 auto;
       text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     #about {
       padding-top: 60px;
-      padding-bottom: 300px;
+      padding-bottom: 120px;
+    }
+
+    #engineering-portfolio {
+      background-color: #f9f9f9;
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
 
     #about p, #contact p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 1.15rem;
+      line-height: 1.7;
       color: #333;
       text-align: left;
-    }
-
-    section h2 {
-      text-align: left;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #111;
+      transition: color 0.2s ease;
     }
 
     #about a {
       color: var(--burnt-orange);
       font-weight: 600;
       text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     #about a:hover {
       text-decoration: underline;
+      transform: translateY(-1px);
+    }
+
+    section h2 {
+      text-align: left;
+      font-size: 2.1rem;
+      margin-bottom: 24px;
+      color: #111;
+      line-height: 1.3;
+      transition: color 0.2s ease;
     }
 
     .project-subsection {
@@ -121,20 +170,27 @@
       margin-bottom: 30px;
       background-color: transparent;
       box-shadow: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-subsection:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
     }
 
     .project-subsection h3 {
       margin-top: 0;
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       color: var(--burnt-orange);
       font-weight: 700;
+      line-height: 1.25;
     }
 
     .project-subsection p {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: #333;
       margin-top: 12px;
-      line-height: 1.5;
+      line-height: 1.7;
     }
 
     .project-subsection img {
@@ -143,7 +199,12 @@
       max-height: 450px;
       object-fit: cover;
       border-radius: 8px;
-      background-color: #ddd; /* placeholder bg if no image */
+      background-color: #ddd;
+      transition: transform 0.2s ease;
+    }
+
+    .project-subsection img:hover {
+      transform: scale(1.02);
     }
 
     .see-all-projects {
@@ -152,7 +213,7 @@
       font-weight: 600;
       color: var(--burnt-orange);
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       transition: all 0.3s ease;
       padding: 4px 8px;
       border-radius: 4px;
@@ -164,10 +225,57 @@
       background-color: #fff7ee;
       transform: translateY(-2px);
     }
+
+    /* Mobile-Friendly Adjustments */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links,
+      .nav-buttons {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .nav-links.active,
+      .nav-buttons.active {
+        display: flex;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .header h1 {
+        font-size: 2.6rem;
+      }
+
+      section {
+        padding: 60px 16px 40px;
+      }
+
+      section h2 {
+        font-size: 1.9rem;
+      }
+
+      .project-subsection h3 {
+        font-size: 1.6rem;
+      }
+
+      #about p, #contact p, .project-subsection p {
+        font-size: 1.05rem;
+      }
+    }
   </style>
 </head>
 
-  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3E03BCVXF"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -177,19 +285,23 @@
   gtag('config', 'G-Q3E03BCVXF');
 </script>
 
-  
 <body>
   <nav>
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#engineering-portfolio">Engineering Portfolio</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="nav-buttons">
-    <a href="https://www.linkedin.com/in/harrysteinberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    <a href="July2025_SteinbergResume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-  </div>
-</nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="nav-links">
+      <a href="#home" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Home</a>
+      <a href="#engineering-portfolio">Engineering Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-buttons">
+      <a href="https://www.linkedin.com/in/harrysteinberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="July2025_SteinbergResume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+    </div>
+  </nav>
   
   <div class="header" id="home">
     <h1>Harry Steinberg</h1>
@@ -206,7 +318,6 @@
       I currently work at <a href="https://www.parallelfluidics.com/">Parallel Fluidics</a> helping design the next generation of microfluidic device manufacturing equipment.
       I previously worked at <a href="https://www.visioncycle.com/">Vision Cycle</a>, <a href="https://www.ccscambridge.org/">Community Charter School of Cambridge</a>.,
       and <a href="https://nolop.org/">NOLOP Makerspace</a>.
-      
     </p>
   </section>
 
@@ -244,5 +355,26 @@
     <h2>Contact</h2>
     <p>Email me at harrymsteinberg@gmail.com.</p>
   </section>
+
+  <script>
+    // Fade-in on scroll
+    const sections = document.querySelectorAll('section, .header');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Hamburger toggle
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+      document.querySelector('.nav-buttons').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
